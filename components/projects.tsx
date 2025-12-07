@@ -1,100 +1,103 @@
-"use client"
+"use client";
 
-import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Github } from "lucide-react"
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
     id: 1,
-    title: "SmartHome Dashboard",
+    title: "Construction Bible",
     description:
-      "Modern dashboard for controlling smart home devices with real-time data visualization and intuitive controls.",
-    image: "/smart-home-dashboard.png",
-    tech: ["Next.js", "TypeScript", "Tailwind", "React-Three-Fiber"],
+      "A comprehensive construction encyclopedia providing easy access to construction terms, definitions, and industry knowledge. Built with Next.js 16 and powered by a dedicated construction dictionary API.",
+    image: "/construction.png",
+    tech: ["Next.js", "Node.js", "MongoDB", "TypeScript", "Tailwind"],
     category: "Full Stack",
     links: {
-      github: "#",
-      live: "#",
+      github: "https://github.com/BOL-DEV/Construction-Bible",
+      live: "https://construction-bible.vercel.app/",
     },
   },
   {
     id: 2,
-    title: "Portfolio AI Assistant",
+    title: "Hostify Lounge App",
     description:
-      "Interactive AI-powered assistant integrated with Vercel AI SDK for natural conversation about projects and experience.",
-    image: "/ai-chatbot-interface.png",
-    tech: ["Next.js", "TypeScript", "Vercel AI SDK", "Tailwind"],
-    category: "AI/ML",
+      "This project is a restaurant web app where users can browse the menu, filter items, add them to a cart, and place orders. It also includes a booking form for table reservations. All data (cart, orders, bookings, and theme mode) is stored in localStorage, so the app runs fully on the frontend. A fake API is used to simulate order submission.",
+    image: "/hostify.png",
+    tech: ["HTML5", "CSS3", "JS"],
+    category: "Frontend",
     links: {
-      github: "#",
-      live: "#",
+      github: "https://github.com/BOL-DEV/Hostify",
+      live: "https://hostify-xi.vercel.app/",
     },
   },
   {
     id: 3,
-    title: "Construction Planner Tool",
+    title: "Multi Step Form",
     description:
-      "Advanced planning tool with D3.js visualizations for construction project management and timeline tracking.",
-    image: "/construction-project-planning-tool.jpg",
-    tech: ["React", "TypeScript", "D3.js", "Tailwind"],
-    category: "Full Stack",
+      "This project is a fully interactive multi-step subscription form built with React and TypeScript. Users can choose a plan, toggle between monthly and yearly billing, select add-ons, and view a real-time summary before confirmation. The UI is clean, responsive, and modeled to reflect modern onboarding flows used by SaaS platforms.",
+    image: "/multi-step-form.png",
+    tech: ["React", "TypeScript", "CSS Modules"],
+    category: "Frontend",
     links: {
-      github: "#",
-      live: "#",
+      github: "https://github.com/BOL-DEV/Multi-step-form",
+      live: "https://multi-step-form-five-chi.vercel.app/home",
     },
   },
   {
     id: 4,
-    title: "Interactive Roof Plan Viewer",
+    title: "UsePopcorn Movie Search App",
     description:
-      "3D roof plan visualization using React-Three-Fiber with interactive controls for architectural viewing.",
-    image: "/3d-roof-plan-viewer-architecture.jpg",
-    tech: ["React-Three-Fiber", "TypeScript", "Tailwind", "Babylon.js"],
-    category: "3D/Visualization",
+      "UsePopcorn is a fast and responsive movie search app built with React. It lets users search any movie, view detailed information, and manage a personal watched list — all inside a clean, modern UI. The app uses the OMDB API, React hooks, and a fully responsive layout to deliver a smooth movie-exploration experience.",
+    image: "/usePopcorn.png",
+    tech: ["React", "JavaScript", "CSS"],
+    category: "Frontend",
     links: {
-      github: "#",
-      live: "#",
+      github: "https://github.com/BOL-DEV/Usepopcorn",
+      live: "https://usepopcorn-olive.vercel.app/",
     },
   },
   {
     id: 5,
-    title: "Frontend Portfolio Revamp",
-    description: "Complete portfolio redesign with smooth animations, modern aesthetics, and optimized performance.",
-    image: "/portfolio-website-design.png",
-    tech: ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
-    category: "Design/Frontend",
+    title: "Rest Country",
+    description:
+      "Rest Country is a web application that provides detailed information about countries around the world. Users can search for countries, view their flags, capitals, populations, and other relevant data. The app is built using React.js and styled with CSS to ensure a responsive and user-friendly experience.",
+    image: "/rest-country.png",
+    tech: ["React.js", "JavaScript", "CSS"],
+    category: "Frontend",
     links: {
-      github: "#",
-      live: "#",
+      github: "https://github.com/BOL-DEV/Rest-Country",
+      live: "https://rest-country-orpin.vercel.app/",
     },
   },
   {
     id: 6,
-    title: "Real Estate Analytics Platform",
+    title: "My Portfolio Website",
     description:
-      "Comprehensive analytics dashboard for real estate data with interactive charts and filtering capabilities.",
-    image: "/analytics-dashboard-real-estate.jpg",
-    tech: ["Next.js", "TypeScript", "Recharts", "Supabase"],
-    category: "Data",
+      "A personal portfolio website showcasing my projects, skills, and experience as a developer. Built with Next.js and TypeScript, it features a modern design, responsive layout, and integration with the VERCEL SDK API for enhanced performance and deployment.",
+    image: "/image.png",
+    tech: ["Next.js", "TypeScript", "VERCEL SDK API", "tailwindcss"],
+    category: "Frontend/AI",
     links: {
-      github: "#",
-      live: "#",
+      github: "https://github.com/BOL-DEV/BOL-PORTFOLIO",
+      live: "https://bol-portfolio.vercel.app/",
     },
   },
-]
+];
 
 export function Projects() {
-  const categories = ["All", ...new Set(projects.map((p) => p.category))]
+  const categories = ["All", ...new Set(projects.map((p) => p.category))];
 
   return (
     <section id="projects" className="relative py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">Featured Projects</h2>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
+            Featured Projects
+          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A selection of projects showcasing my expertise in full-stack development, 3D visualization, and AI
-            integration.
+            A selection of projects showcasing my expertise in full-stack
+            development, 3D visualization, and AI integration.
           </p>
         </div>
 
@@ -117,13 +120,17 @@ export function Projects() {
               {/* Project Content */}
               <div className="p-6">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-bold text-foreground">{project.title}</h3>
+                  <h3 className="text-xl font-bold text-foreground">
+                    {project.title}
+                  </h3>
                   <Badge variant="outline" className="text-xs">
                     {project.category}
                   </Badge>
                 </div>
 
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{project.description}</p>
+                <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                  {project.description}
+                </p>
 
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -164,5 +171,5 @@ export function Projects() {
         </div>
       </div>
     </section>
-  )
+  );
 }
