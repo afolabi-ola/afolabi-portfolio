@@ -1,117 +1,144 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState, useRef, useEffect } from "react"
-import { MessageCircle, Send, X, Minimize2, Maximize2 } from "lucide-react"
+import { useState, useRef, useEffect } from "react";
+import { MessageCircle, Send, X, Minimize2, Maximize2 } from "lucide-react";
 
 interface Message {
-  id: string
-  content: string
-  role: "user" | "assistant"
-  timestamp: Date
+  id: string;
+  content: string;
+  role: "user" | "assistant";
+  timestamp: Date;
 }
 
 export function AiAssistant() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isMinimized, setIsMinimized] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      content: "Hi! I'm Abdulakeem's AI Assistant. Ask me anything about his projects, skills, or experience!",
+      content:
+        "Hey there! 👋 I'm Abdulakeem's AI Assistant. I'm 19 years old, a student at LASU studying Building Technology. Ask me anything about my projects, skills, studies, or experience!",
       role: "assistant",
       timestamp: new Date(),
     },
-  ])
-  const [input, setInput] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
-  const messagesEndRef = useRef<HTMLDivElement>(null)
+  ]);
+  const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  }
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   useEffect(() => {
-    scrollToBottom()
-  }, [messages])
+    scrollToBottom();
+  }, [messages]);
 
   const sampleResponses: Record<string, string> = {
     projects:
-      "I've worked on 50+ projects including SmartHome Dashboard, AI-powered Portfolio Assistant, Construction Planner Tool, and Interactive 3D Roof Plan Viewer. Each project leverages modern tech stacks like Next.js, React, TypeScript, and Three.js.",
+      "I've worked on several projects including Construction bible, Hostify, Multi step form, Rest country etc. Each project uses modern tech stacks like Next.js, React, TypeScript, and Tailwindcss. As a LASU Building student, I combine web development with construction technology!",
     skills:
-      "My expertise includes: Frontend (Next.js, React, TypeScript, Tailwind), Backend (Node.js, Express.js), 3D Visualization (React-Three-Fiber, Three.js, D3.js), and Design Tools (Figma, shadcn/ui). I also have experience with CAD operations and building visualization.",
+      "My expertise includes: Frontend (Next.js, React, TypeScript, Tailwind), Backend (Node.js, Express.js),  and Design Tools (Figma). I also have experience with CAD operations, building visualization, and construction design principles from my studies.",
     experience:
-      "I have 5+ years of experience in web development and software engineering. My unique background combines software development with construction studies, positioning me at the intersection of tech and building innovation.",
+      "I'm 19 years old and currently in my studies at LASU, combining software development with Building Technology education. I've been actively developing web applications and learning construction tech, positioning myself at the intersection of digital innovation and building innovation.",
     construction:
-      "My passion lies in construction technology. I'm building smart solutions for construction planning, visualization, and management. My projects include CAD integration, 3D roof plan viewers, and construction project planning tools.",
+      "My passion is construction technology! I'm building smart solutions for construction planning, visualization, and management. My projects include CAD integration, 3D roof plan viewers, and construction project planning tools. My LASU Building studies give me practical knowledge in this space.",
     background:
-      "I'm a Full Stack Engineer with construction studies background. I'm on a mission to influence both tech and construction communities with innovative, smart solutions that solve real problems.",
+      "I'm a 19-year-old Full Stack Developer and LASU Building student. I'm on a mission to create innovative digital solutions that solve real construction and building problems. My unique blend of web dev skills and building studies prepares me for the future of construction tech.",
     contact:
-      "You can reach me via email at contact@abdulakeem.dev, connect on LinkedIn, or check out my GitHub repositories. I'm always open to collaborating on exciting projects!",
-  }
+      "You can reach me via email at abdulakeemhabeeb123@gmail.com, connect on LinkedIn, or check out my GitHub repositories. I'm always excited to collaborate on tech and construction-related projects!",
+    age: "I'm 19 years old, currently a student at LASU studying Building Technology. This gives me a unique perspective on how technology can revolutionize the construction industry!",
+    education:
+      "I'm studying Building Technology at LASU (Lagos State University). It's an exciting field that combines design, engineering, and sustainability and I'm bringing my web development skills to innovate in this space!",
+  };
 
   const getResponse = (userMessage: string): string => {
-    const lowerMessage = userMessage.toLowerCase()
+    const lowerMessage = userMessage.toLowerCase();
 
-    if (lowerMessage.includes("project") || lowerMessage.includes("work") || lowerMessage.includes("portfolio")) {
-      return sampleResponses.projects
-    } else if (lowerMessage.includes("skill") || lowerMessage.includes("expertise")) {
-      return sampleResponses.skills
+    if (
+      lowerMessage.includes("project") ||
+      lowerMessage.includes("work") ||
+      lowerMessage.includes("portfolio")
+    ) {
+      return sampleResponses.projects;
+    } else if (
+      lowerMessage.includes("skill") ||
+      lowerMessage.includes("expertise")
+    ) {
+      return sampleResponses.skills;
     } else if (
       lowerMessage.includes("experience") ||
       lowerMessage.includes("background") ||
       lowerMessage.includes("how long")
     ) {
-      return sampleResponses.experience
+      return sampleResponses.experience;
     } else if (
       lowerMessage.includes("construction") ||
       lowerMessage.includes("building") ||
       lowerMessage.includes("architecture")
     ) {
-      return sampleResponses.construction
+      return sampleResponses.construction;
+    } else if (
+      lowerMessage.includes("age") ||
+      lowerMessage.includes("how old") ||
+      lowerMessage.includes("years old")
+    ) {
+      return sampleResponses.age;
+    } else if (
+      lowerMessage.includes("education") ||
+      lowerMessage.includes("school") ||
+      lowerMessage.includes("lasu") ||
+      lowerMessage.includes("studying")
+    ) {
+      return sampleResponses.education;
     } else if (lowerMessage.includes("about") || lowerMessage.includes("who")) {
-      return sampleResponses.background
-    } else if (lowerMessage.includes("contact") || lowerMessage.includes("reach")) {
-      return sampleResponses.contact
+      return sampleResponses.background;
+    } else if (
+      lowerMessage.includes("contact") ||
+      lowerMessage.includes("reach")
+    ) {
+      return sampleResponses.contact;
     } else {
-      return "That's an interesting question! Feel free to ask me about Abdulakeem's projects, skills, experience, or construction tech initiatives. You can also ask how to get in touch!"
+      return "That's a great question! Feel free to ask me about my projects, skills, age, education at LASU, experience, construction tech initiatives, or how to get in touch. I'm happy to help!";
     }
-  }
+  };
 
   const handleSend = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    if (!input.trim()) return
+    e.preventDefault();
+    if (!input.trim()) return;
 
     const userMessage: Message = {
       id: Date.now().toString(),
       content: input,
       role: "user",
       timestamp: new Date(),
-    }
+    };
 
-    setMessages((prev) => [...prev, userMessage])
-    setInput("")
-    setIsLoading(true)
+    setMessages((prev) => [...prev, userMessage]);
+    setInput("");
+    setIsLoading(true);
 
     // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 500))
+    await new Promise((resolve) => setTimeout(resolve, 500));
 
     const assistantMessage: Message = {
       id: (Date.now() + 1).toString(),
       content: getResponse(input),
       role: "assistant",
       timestamp: new Date(),
-    }
+    };
 
-    setMessages((prev) => [...prev, assistantMessage])
-    setIsLoading(false)
-  }
+    setMessages((prev) => [...prev, assistantMessage]);
+    setIsLoading(false);
+  };
 
   return (
     <>
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-20 right-4 w-96 max-w-[calc(100vw-2rem)] h-96 md:h-[500px] bg-card border border-border/50 rounded-xl shadow-xl shadow-primary/20 flex flex-col z-40 backdrop-blur-sm bg-card/95">
+        <div className="fixed bottom-20 right-4 w-96 max-w-[calc(100vw-2rem)] h-96 md:h-[500px] bg-card/95 border border-border/50 rounded-xl shadow-xl shadow-primary/20 flex flex-col z-40 backdrop-blur-sm">
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-border/30">
             <h3 className="text-sm font-semibold text-foreground flex items-center gap-2">
@@ -145,7 +172,12 @@ export function AiAssistant() {
             <>
               <div className="flex-1 overflow-y-auto p-4 space-y-4">
                 {messages.map((message) => (
-                  <div key={message.id} className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}>
+                  <div
+                    key={message.id}
+                    className={`flex ${
+                      message.role === "user" ? "justify-end" : "justify-start"
+                    }`}
+                  >
                     <div
                       className={`max-w-xs px-4 py-2 rounded-lg text-sm ${
                         message.role === "user"
@@ -178,7 +210,10 @@ export function AiAssistant() {
               </div>
 
               {/* Input */}
-              <form onSubmit={handleSend} className="p-4 border-t border-border/30">
+              <form
+                onSubmit={handleSend}
+                className="p-4 border-t border-border/30"
+              >
                 <div className="flex gap-2">
                   <input
                     type="text"
@@ -209,8 +244,12 @@ export function AiAssistant() {
         className="fixed bottom-4 right-4 p-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full shadow-lg shadow-primary/50 transition-all hover:shadow-xl hover:shadow-primary/60 z-40"
         aria-label="Toggle AI Assistant"
       >
-        {isOpen ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
+        {isOpen ? (
+          <X className="w-6 h-6" />
+        ) : (
+          <MessageCircle className="w-6 h-6" />
+        )}
       </button>
     </>
-  )
+  );
 }

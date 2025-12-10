@@ -16,25 +16,24 @@ export function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
           {/* Bio */}
           <Card className="p-8 border-border/50 bg-card/50 backdrop-blur-sm">
-            <h3 className="text-2xl font-bold mb-4 text-primary">Journey</h3>
+            <h3 className="text-2xl font-bold mb-4 text-primary">Who I Am</h3>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                I'm a Full Stack Engineer passionate about creating exceptional
-                digital experiences that merge technical excellence with
-                real-world impact. My unique background combines software
-                development expertise with construction studies, positioning me
-                at the intersection of tech and building innovation.
+                I'm 19 years old and a Full Stack Developer with a passion for
+                creating digital solutions. I'm currently studying Building
+                Technology at LASU, which gives me a unique perspective on how
+                technology can revolutionize the construction industry.
               </p>
               <p>
-                Starting with a curiosity for how things work—both in code and
-                in physical structures—I've spent years honing my craft in web
-                development while exploring the vast potential of construction
-                technology.
+                My curiosity drives me to understand how things work—both in
+                code and in physical structures. I'm honing my skills in web
+                development while actively exploring the vast potential of
+                construction technology.
               </p>
               <p>
-                My mission is to influence both the tech and construction
-                communities by building smart, innovative solutions that solve
-                real problems and create lasting value.
+                My mission is to bridge the gap between tech and construction,
+                building smart, innovative solutions that solve real problems
+                and create lasting value in the industry.
               </p>
             </div>
           </Card>
@@ -85,33 +84,31 @@ export function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded-lg mb-4">
-                <span className="text-2xl font-bold text-primary">20+</span>
+                <span className="text-2xl font-bold text-primary">19</span>
               </div>
-              <h4 className="font-semibold text-foreground mb-2">
-                Projects Completed
-              </h4>
+              <h4 className="font-semibold text-foreground mb-2">Age</h4>
               <p className="text-sm text-muted-foreground">
-                Full-stack applications and interactive experiences
+                Bringing fresh perspective and energy to tech and construction
               </p>
             </div>
             <div className="text-center">
               <div className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded-lg mb-4">
-                <span className="text-2xl font-bold text-primary">3+</span>
+                <span className="text-2xl font-bold text-primary">LASU</span>
               </div>
               <h4 className="font-semibold text-foreground mb-2">
-                Years Experience
+                Building Student
               </h4>
               <p className="text-sm text-muted-foreground">
-                In web development and software engineering
+                Studying Building Technology at Lagos State University
               </p>
             </div>
             <div className="text-center">
               <div className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded-lg mb-4">
-                <span className="text-2xl font-bold text-primary">100%</span>
+                <span className="text-2xl font-bold text-primary">15+</span>
               </div>
-              <h4 className="font-semibold text-foreground mb-2">Dedicated</h4>
+              <h4 className="font-semibold text-foreground mb-2">Projects Built</h4>
               <p className="text-sm text-muted-foreground">
-                To creating quality solutions and continuous learning
+                Full-stack applications merging web dev with construction tech
               </p>
             </div>
           </div>
