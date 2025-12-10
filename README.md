@@ -1,30 +1,66 @@
-# Portfolio website build
+# Abdulakeem Habeeb (BOL) - Portfolio
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+![Portfolio Preview](public/og-image.png)
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/bol-devs-projects/v0-portfolio-website-build)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/k3tHmbv3FAW)
+A modern, interactive portfolio website built with Next.js 15, TypeScript, and Tailwind CSS. This project showcases my journey as a Full Stack Engineer and Building Technology student at LASU, bridging the gap between digital innovation and construction technology.
 
-## Overview
+## Tech Stack
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+- **Framework:** [Next.js 15](https://nextjs.org/) (App Router)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **UI Components:** [shadcn/ui](https://ui.shadcn.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/) & Tailwind Animate
+- **3D/Interactive:** Three.js / React Three Fiber
+- **Deployment:** [Vercel](https://vercel.com)
 
-## Deployment
+## Features
 
-Your project is live at:
+- **AI Assistant:** Interactive chat interface powered by custom logic to answer questions about my background and skills.
+- **Responsive Design:** Fully responsive layout that works seamlessly on mobile, tablet, and desktop.
+- **Dark Mode:** Built-in dark mode support with smooth transitions.
+- **Performance:** Optimized for speed and SEO using Next.js best practices.
+- **Modern UI:** Glassmorphism effects, smooth scrolling, and interactive elements.
 
-**[https://vercel.com/bol-devs-projects/v0-portfolio-website-build](https://vercel.com/bol-devs-projects/v0-portfolio-website-build)**
+## About Me
 
-## Build your app
+I'm a 19-year-old Full Stack Engineer and Building Technology student at Lagos State University (LASU). My unique background allows me to approach problems from both a technical and engineering perspective.
 
-Continue building your app on:
+- **Focus:** Construction Tech, Web Development, 3D Visualization
+- **Mission:** To revolutionize the construction industry through innovative digital solutions.
 
-**[https://v0.app/chat/k3tHmbv3FAW](https://v0.app/chat/k3tHmbv3FAW)**
+## Getting Started
 
-## How It Works
+1. **Clone the repository**
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+   ```bash
+   git clone https://github.com/BOL-DEV/BOL-PORTFOLIO.git
+   cd BOL-PORTFOLIO
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   # or
+   pnpm install
+   # or
+   yarn install
+   ```
+
+3. **Run the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000) to see the application running.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Built with by [Abdulakeem Habeeb](https://github.com/BOL-DEV)
