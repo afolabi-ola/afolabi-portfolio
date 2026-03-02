@@ -9,7 +9,7 @@ const projects = [
     id: 1,
     title: 'CBT Exam Management System',
     description:
-      'A scalable Computer-Based Testing (CBT) platform designed for schools and institutions to conduct secure online examinations. Built with Next.js 16 App Router, featuring separate student, admin, and teacher portals, real-time exam timers, auto-save functionality, role-based dashboards, and performance analytics.',
+      'An enterprise-grade Computer-Based Testing (CBT) system built for educational institutions to conduct secure, scalable online examinations. Architected with separate student, admin, and teacher portals using Next.js 16 App Router, featuring real-time countdown timers, answer auto-save, protected routes with middleware, exam session control, and analytics dashboards for performance tracking.',
     image: '/cbt-app.png',
     tech: [
       'Next.js 16',
