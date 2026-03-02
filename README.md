@@ -21,7 +21,7 @@ It is built with a modern Next.js App Router architecture and an interactive UI 
 - **UI:** [React 19](https://react.dev/), [shadcn/ui](https://ui.shadcn.com/), [Lucide Icons](https://lucide.dev/)
 - **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
 - **Theming:** [next-themes](https://github.com/pacocoursey/next-themes)
-- **Deployment:** [Vercel](https://vercel.com)
+- **Deployment:** [Vercel](https://afolabi-portfolio-two.vercel.app/)
 
 ## Features
 

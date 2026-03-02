@@ -104,7 +104,7 @@ const projects = [
     category: 'Frontend/AI',
     links: {
       github: 'https://github.com/afolabi-ola/afolabi-portfolio',
-      live: 'https://afolabi-portfolio.vercel.app/',
+      live: 'https://afolabi-portfolio-two.vercel.app/',
     },
   },
 ];
