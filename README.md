@@ -1,6 +1,6 @@
 # Afolabi Quadri - Portfolio
 
-![Portfolio Preview](public/og-image.png)
+![Portfolio Preview](public/portfolio.png)
 
 Personal portfolio website showcasing real-world full-stack projects, backend growth, and product-focused engineering.
 
