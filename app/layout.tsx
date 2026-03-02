@@ -14,13 +14,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Abdulakeem Habeeb (BOL) - Full Stack Engineer",
+  title: 'Afolabi Quadri - Full Stack Engineer',
   description:
-    "Full Stack Engineer & Aspiring Construction Engineer - Building exceptional web experiences with cutting-edge technology",
-  generator: "v0.app",
+    'Full Stack Engineer - Building exceptional web experiences with cutting-edge technology',
+  // generator: 'v0.app',
   icons: {
-    icon: "/android-chrome-192x192.png",
-    apple: "/apple-touch-icon.png",
+    icon: '/android-chrome-192x192.png',
+    apple: '/apple-touch-icon.png',
   },
 };
 

@@ -17,10 +17,10 @@ export function AiAssistant() {
   const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
-      id: "1",
+      id: '1',
       content:
-        "Hey there! 👋 I'm Abdulakeem's AI Assistant. I'm 19 years old, a student at LASU studying Building Technology. Ask me anything about my projects, skills, studies, or experience!",
-      role: "assistant",
+        "Hey 👋 I'm Afolabi's AI Assistant. He's a Software Engineer who builds real-world solutions with React, Next.js, Node.js, and MongoDB. You can ask me about his projects, backend journey, teaching experience, the CBT app, or the Escrow app.",
+      role: 'assistant',
       timestamp: new Date(),
     },
   ]);
@@ -38,70 +38,93 @@ export function AiAssistant() {
 
   const sampleResponses: Record<string, string> = {
     projects:
-      "I've worked on several projects including Construction bible, Hostify, Multi step form, Rest country etc. Each project uses modern tech stacks like Next.js, React, TypeScript, and Tailwindcss. As a LASU Building student, I combine web development with construction technology!",
+      'Afolabi has worked on multiple real-world applications including a CBT examination platform licensed to clients, a hotel management dashboard, and several full-stack web apps. He focuses on scalable frontend architecture and is actively advancing into deep backend engineering like caching, database optimization, and system design.',
+    cbt:
+      'The CBT app is a production-focused examination platform built for real institutions. It includes role-based portals for students, admins, and teachers, timed exams, auto-save, result handling, and secure workflows. Afolabi led frontend development and contributed to shipping it for licensed client use.',
+    escrow:
+      'The Escrow app is a secure transaction platform built to protect buyers and sellers. It supports wallet operations, transaction tracking, verification flows, and dispute-ready workflows with a modern dashboard experience. The system is designed for trust, reliability, and scalable full-stack operations.',
     skills:
-      "My expertise includes: Frontend (Next.js, React, TypeScript, Tailwind), Backend (Node.js, Express.js),  and Design Tools (Figma). I also have experience with CAD operations, building visualization, and construction design principles from my studies.",
+      'His core stack includes React, Next.js, TypeScript, TailwindCSS on the frontend, and Node.js, Express, MongoDB on the backend. He also works with REST APIs, authentication flows, and is currently diving into advanced backend topics like caching, database replication concepts, and scalable architecture.',
     experience:
-      "I'm 19 years old and currently in my studies at LASU, combining software development with Building Technology education. I've been actively developing web applications and learning construction tech, positioning myself at the intersection of digital innovation and building innovation.",
-    construction:
-      "My passion is construction technology! I'm building smart solutions for construction planning, visualization, and management. My projects include CAD integration, 3D roof plan viewers, and construction project planning tools. My LASU Building studies give me practical knowledge in this space.",
+      'Afolabi has real production experience working on live applications with a senior engineer. He led frontend development on a CBT platform that was later licensed to a client. He also teaches web development students and collaborates on full-stack production projects.',
+    backend:
+      'He is currently advancing beyond basic CRUD APIs into deeper backend engineering topics like refresh token flows, caching strategies, background jobs, database indexing, and scalable system design. His goal is to confidently design high-scale systems similar to social platforms.',
+    teaching:
+      'Afolabi works as a web development tutor, mentoring new developers in HTML, CSS, JavaScript, React, and modern frontend practices while still building real-world applications himself.',
     background:
-      "I'm a 19-year-old Full Stack Developer and LASU Building student. I'm on a mission to create innovative digital solutions that solve real construction and building problems. My unique blend of web dev skills and building studies prepares me for the future of construction tech.",
+      'Afolabi is a solution-driven Software Engineer focused on building impactful digital products. He started strong in frontend engineering and is now intentionally mastering advanced backend systems to become a well-rounded full-stack and system-level engineer.',
     contact:
-      "You can reach me via email at abdulakeemhabeeb123@gmail.com, connect on LinkedIn, or check out my GitHub repositories. I'm always excited to collaborate on tech and construction-related projects!",
-    age: "I'm 19 years old, currently a student at LASU studying Building Technology. This gives me a unique perspective on how technology can revolutionize the construction industry!",
+      'You can connect with Afolabi via LinkedIn, check out his GitHub projects, or reach out for collaboration, freelance work, or engineering opportunities.',
     education:
-      "I'm studying Building Technology at LASU (Lagos State University). It's an exciting field that combines design, engineering, and sustainability and I'm bringing my web development skills to innovate in this space!",
+      'He trained through an intensive coding bootcamp where he gained strong frontend expertise and transitioned into real-world project development under mentorship from senior engineers.',
   };
 
   const getResponse = (userMessage: string): string => {
     const lowerMessage = userMessage.toLowerCase();
 
     if (
-      lowerMessage.includes("project") ||
-      lowerMessage.includes("work") ||
-      lowerMessage.includes("portfolio")
+      lowerMessage.includes('cbt') ||
+      lowerMessage.includes('exam app') ||
+      lowerMessage.includes('examination app') ||
+      lowerMessage.includes('test platform')
+    ) {
+      return sampleResponses.cbt;
+    } else if (
+      lowerMessage.includes('escrow') ||
+      lowerMessage.includes('transaction app') ||
+      lowerMessage.includes('buyer and seller')
+    ) {
+      return sampleResponses.escrow;
+    } else if (
+      lowerMessage.includes('project') ||
+      lowerMessage.includes('work') ||
+      lowerMessage.includes('portfolio')
     ) {
       return sampleResponses.projects;
     } else if (
-      lowerMessage.includes("skill") ||
-      lowerMessage.includes("expertise")
+      lowerMessage.includes('skill') ||
+      lowerMessage.includes('tech') ||
+      lowerMessage.includes('stack')
     ) {
       return sampleResponses.skills;
     } else if (
-      lowerMessage.includes("experience") ||
-      lowerMessage.includes("background") ||
-      lowerMessage.includes("how long")
+      lowerMessage.includes('experience') ||
+      lowerMessage.includes('background') ||
+      lowerMessage.includes('journey')
     ) {
       return sampleResponses.experience;
     } else if (
-      lowerMessage.includes("construction") ||
-      lowerMessage.includes("building") ||
-      lowerMessage.includes("architecture")
+      lowerMessage.includes('backend') ||
+      lowerMessage.includes('api') ||
+      lowerMessage.includes('database') ||
+      lowerMessage.includes('system design')
     ) {
-      return sampleResponses.construction;
+      return sampleResponses.backend;
     } else if (
-      lowerMessage.includes("age") ||
-      lowerMessage.includes("how old") ||
-      lowerMessage.includes("years old")
+      lowerMessage.includes('teach') ||
+      lowerMessage.includes('mentor') ||
+      lowerMessage.includes('students')
     ) {
-      return sampleResponses.age;
+      return sampleResponses.teaching;
     } else if (
-      lowerMessage.includes("education") ||
-      lowerMessage.includes("school") ||
-      lowerMessage.includes("lasu") ||
-      lowerMessage.includes("studying")
+      lowerMessage.includes('education') ||
+      lowerMessage.includes('bootcamp') ||
+      lowerMessage.includes('learning')
     ) {
       return sampleResponses.education;
-    } else if (lowerMessage.includes("about") || lowerMessage.includes("who")) {
-      return sampleResponses.background;
     } else if (
-      lowerMessage.includes("contact") ||
-      lowerMessage.includes("reach")
+      lowerMessage.includes('contact') ||
+      lowerMessage.includes('hire') ||
+      lowerMessage.includes('reach')
     ) {
       return sampleResponses.contact;
+    } else if (
+      lowerMessage.includes('about') ||
+      lowerMessage.includes('who are you')
+    ) {
+      return sampleResponses.background;
     } else {
-      return "That's a great question! Feel free to ask me about my projects, skills, age, education at LASU, experience, construction tech initiatives, or how to get in touch. I'm happy to help!";
+      return "Great question! You can ask about Afolabi's projects, backend growth journey, teaching experience, tech stack, the CBT app, or the Escrow app.";
     }
   };
 

@@ -15,6 +15,7 @@ export function Contact() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -29,76 +30,92 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
+    setError('');
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    setSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
-    setIsLoading(false);
+      if (!response.ok) {
+        const data = await response.json().catch(() => null);
+        throw new Error(data?.error || 'Failed to send message');
+      }
 
-    // Reset success message after 3 seconds
-    setTimeout(() => setSubmitted(false), 3000);
+      setSubmitted(true);
+      setFormData({ name: '', email: '', message: '' });
+      setTimeout(() => setSubmitted(false), 3000);
+    } catch (err) {
+      const message =
+        err instanceof Error ? err.message : 'Failed to send message';
+      setError(message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
-    <section id="contact" className="relative py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">Let's Connect</h2>
-          <p className="text-lg text-muted-foreground">
-            Have a project in mind or just want to chat? I'd love to hear from
-            you.
+    <section id='contact' className='relative py-24 px-4 sm:px-6 lg:px-8'>
+      <div className='max-w-4xl mx-auto'>
+        <div className='text-center mb-16'>
+          <h2 className='text-4xl sm:text-5xl font-bold mb-4'>Let's Connect</h2>
+          <p className='text-lg text-muted-foreground'>
+            Have a project in mind or just want to chat? I owuld love to hear
+            from you.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 relative z-10">
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 relative z-10'>
           {/* Contact Cards */}
-          <Card className="p-6 border-border/50 bg-card/50 backdrop-blur-sm text-center hover:border-primary/50 transition-all">
-            <div className="inline-block p-3 bg-primary/10 rounded-lg mb-4">
-              <Mail className="w-6 h-6 text-primary" />
+          <Card className='p-6 border-border/50 bg-card/50 backdrop-blur-sm text-center hover:border-primary/50 transition-all'>
+            <div className='inline-block p-3 bg-primary/10 rounded-lg mb-4'>
+              <Mail className='w-6 h-6 text-primary' />
             </div>
-            <h3 className="font-semibold text-foreground mb-2">Email</h3>
-            <p className="text-muted-foreground text-sm">
-              contact@abdulakeem.dev
+            <h3 className='font-semibold text-foreground mb-2'>Email</h3>
+            <p className='text-muted-foreground text-sm'>
+              Reach out via email for inquiries or collaborations
             </p>
             <a
-              href="mailto:contact@abdulakeemhabeeb123@gmail.com"
-              className="text-primary hover:text-accent text-sm font-medium mt-3 inline-block"
+              href='mailto:afolabiquadri28@gmail.com'
+              className='text-primary hover:text-accent text-sm font-medium mt-3 inline-block'
             >
               Send Email
             </a>
           </Card>
 
-          <Card className="p-6 border-border/50 bg-card/50 backdrop-blur-sm text-center hover:border-primary/50 transition-all">
-            <div className="inline-block p-3 bg-primary/10 rounded-lg mb-4">
-              <Linkedin className="w-6 h-6 text-primary" />
+          <Card className='p-6 border-border/50 bg-card/50 backdrop-blur-sm text-center hover:border-primary/50 transition-all'>
+            <div className='inline-block p-3 bg-primary/10 rounded-lg mb-4'>
+              <Linkedin className='w-6 h-6 text-primary' />
             </div>
-            <h3 className="font-semibold text-foreground mb-2">LinkedIn</h3>
-            <p className="text-muted-foreground text-sm">Connect on LinkedIn</p>
+            <h3 className='font-semibold text-foreground mb-2'>LinkedIn</h3>
+            <p className='text-muted-foreground text-sm'>Connect on LinkedIn</p>
             <a
-              href="https://www.linkedin.com/in/habeeb-abdulakeem-b75253374/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:text-accent text-sm font-medium mt-3 inline-block"
+              href='https://www.linkedin.com/in/quadri-afolabi-6238312a6/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-primary hover:text-accent text-sm font-medium mt-3 inline-block'
             >
               Visit Profile
             </a>
           </Card>
 
-          <Card className="p-6 border-border/50 bg-card/50 backdrop-blur-sm text-center hover:border-primary/50 transition-all">
-            <div className="inline-block p-3 bg-primary/10 rounded-lg mb-4">
-              <Github className="w-6 h-6 text-primary" />
+          <Card className='p-6 border-border/50 bg-card/50 backdrop-blur-sm text-center hover:border-primary/50 transition-all'>
+            <div className='inline-block p-3 bg-primary/10 rounded-lg mb-4'>
+              <Github className='w-6 h-6 text-primary' />
             </div>
-            <h3 className="font-semibold text-foreground mb-2">GitHub</h3>
-            <p className="text-muted-foreground text-sm">
+            <h3 className='font-semibold text-foreground mb-2'>GitHub</h3>
+            <p className='text-muted-foreground text-sm'>
               Check my repositories
             </p>
             <a
-              href="https://github.com/BOL-DEV"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:text-accent text-sm font-medium mt-3 inline-block"
+              href='https://github.com/afolabi-ola'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-primary hover:text-accent text-sm font-medium mt-3 inline-block'
             >
               View GitHub
             </a>
@@ -106,83 +123,89 @@ export function Contact() {
         </div>
 
         {/* Contact Form */}
-        <Card className="p-8 border-border/50 bg-card/50 backdrop-blur-sm relative z-10">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Card className='p-8 border-border/50 bg-card/50 backdrop-blur-sm relative z-10'>
+          <form onSubmit={handleSubmit} className='space-y-6'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
               <div>
                 <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-foreground mb-2"
+                  htmlFor='name'
+                  className='block text-sm font-medium text-foreground mb-2'
                 >
                   Name
                 </label>
                 <input
-                  type="text"
-                  id="name"
-                  name="name"
+                  type='text'
+                  id='name'
+                  name='name'
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  placeholder="Your name"
-                  className="w-full px-4 py-2 rounded-lg bg-secondary/20 border border-border/50 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
+                  placeholder='Your name'
+                  className='w-full px-4 py-2 rounded-lg bg-secondary/20 border border-border/50 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all'
                 />
               </div>
               <div>
                 <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-foreground mb-2"
+                  htmlFor='email'
+                  className='block text-sm font-medium text-foreground mb-2'
                 >
                   Email
                 </label>
                 <input
-                  type="email"
-                  id="email"
-                  name="email"
+                  type='email'
+                  id='email'
+                  name='email'
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  placeholder="your@email.com"
-                  className="w-full px-4 py-2 rounded-lg bg-secondary/20 border border-border/50 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
+                  placeholder='your@email.com'
+                  className='w-full px-4 py-2 rounded-lg bg-secondary/20 border border-border/50 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all'
                 />
               </div>
             </div>
 
             <div>
               <label
-                htmlFor="message"
-                className="block text-sm font-medium text-foreground mb-2"
+                htmlFor='message'
+                className='block text-sm font-medium text-foreground mb-2'
               >
                 Message
               </label>
               <textarea
-                id="message"
-                name="message"
+                id='message'
+                name='message'
                 value={formData.message}
                 onChange={handleChange}
                 required
-                placeholder="Tell me about your project or idea..."
+                placeholder='Tell me about your project or idea...'
                 rows={6}
-                className="w-full px-4 py-2 rounded-lg bg-secondary/20 border border-border/50 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all resize-none"
+                className='w-full px-4 py-2 rounded-lg bg-secondary/20 border border-border/50 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all resize-none'
               />
             </div>
 
             {submitted && (
-              <div className="p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
-                <p className="text-green-300 text-sm">
-                  Thanks for your message! I'll get back to you soon.
+              <div className='p-4 bg-green-500/10 border border-green-500/30 rounded-lg'>
+                <p className='text-green-300 text-sm'>
+                  Thanks for your message! I will get back to you soon.
                 </p>
               </div>
             )}
 
-            <Button size="lg" disabled={isLoading} className="w-full gap-2">
-              <MessageCircle className="w-4 h-4" />
-              {isLoading ? "Sending..." : "Send Message"}
+            {error && (
+              <div className='p-4 bg-destructive/10 border border-destructive/30 rounded-lg'>
+                <p className='text-destructive text-sm'>{error}</p>
+              </div>
+            )}
+
+            <Button size='lg' disabled={isLoading} className='w-full gap-2'>
+              <MessageCircle className='w-4 h-4' />
+              {isLoading ? 'Sending...' : 'Send Message'}
             </Button>
           </form>
         </Card>
 
         {/* Footer CTA */}
-        <div className="mt-12 text-center text-muted-foreground text-sm relative z-10">
+        <div className='mt-12 text-center text-muted-foreground text-sm relative z-10'>
           <p>Let's build something amazing together.</p>
         </div>
       </div>

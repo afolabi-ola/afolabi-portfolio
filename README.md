@@ -1,33 +1,53 @@
-# Abdulakeem Habeeb (BOL) - Portfolio
+# Afolabi Quadri - Portfolio
 
 ![Portfolio Preview](public/og-image.png)
 
-A modern, interactive portfolio website built with Next.js 15, TypeScript, and Tailwind CSS. This project showcases my journey as a Full Stack Engineer and Building Technology student at LASU, bridging the gap between digital innovation and construction technology.
+Personal portfolio website showcasing real-world full-stack projects, backend growth, and product-focused engineering.
+
+## Overview
+
+This portfolio highlights production-oriented work including:
+
+- CBT examination platforms
+- Secure escrow transaction workflows
+- Full-stack dashboards and web applications
+
+It is built with a modern Next.js App Router architecture and an interactive UI experience.
 
 ## Tech Stack
 
-- **Framework:** [Next.js 15](https://nextjs.org/) (App Router)
+- **Framework:** [Next.js 16](https://nextjs.org/) (App Router)
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **UI:** [React 19](https://react.dev/), [shadcn/ui](https://ui.shadcn.com/), [Lucide Icons](https://lucide.dev/)
 - **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
-- **UI Components:** [shadcn/ui](https://ui.shadcn.com/)
-- **Animations:** [Framer Motion](https://www.framer.com/motion/) & Tailwind Animate
-- **3D/Interactive:** Three.js / React Three Fiber
+- **Theming:** [next-themes](https://github.com/pacocoursey/next-themes)
 - **Deployment:** [Vercel](https://vercel.com)
 
 ## Features
 
-- **AI Assistant:** Interactive chat interface powered by custom logic to answer questions about my background and skills.
-- **Responsive Design:** Fully responsive layout that works seamlessly on mobile, tablet, and desktop.
-- **Dark Mode:** Built-in dark mode support with smooth transitions.
-- **Performance:** Optimized for speed and SEO using Next.js best practices.
-- **Modern UI:** Glassmorphism effects, smooth scrolling, and interactive elements.
+- **Hero Navigation:** CTA buttons scroll directly to Projects and Contact sections.
+- **Projects Showcase:** Hover overlay on project cards with full description and complete stack.
+- **AI Assistant:** Custom assistant responses for portfolio topics, including CBT and Escrow app details.
+- **Contact Form:** Real message delivery through an API route using Resend.
+- **Responsive Design:** Optimized for mobile, tablet, and desktop.
 
-## About Me
+## Contact Form Delivery (Resend)
 
-I'm a 19-year-old Full Stack Engineer and Building Technology student at Lagos State University (LASU). My unique background allows me to approach problems from both a technical and engineering perspective.
+The contact form posts to `POST /api/contact` and sends email through Resend.
 
-- **Focus:** Construction Tech, Web Development, 3D Visualization
-- **Mission:** To revolutionize the construction industry through innovative digital solutions.
+Create a `.env.local` file:
+
+```bash
+RESEND_API_KEY=your_resend_api_key
+CONTACT_TO_EMAIL=your_inbox@example.com
+CONTACT_FROM_EMAIL="Portfolio Contact <onboarding@resend.dev>"
+```
+
+Notes:
+
+- `RESEND_API_KEY` is required.
+- `CONTACT_TO_EMAIL` is optional (defaults to your configured fallback).
+- `CONTACT_FROM_EMAIL` should be a verified sender for production domains.
 
 ## Getting Started
 
@@ -41,26 +61,25 @@ I'm a 19-year-old Full Stack Engineer and Building Technology student at Lagos S
 2. **Install dependencies**
 
    ```bash
-   npm install
-   # or
    pnpm install
-   # or
-   yarn install
+   # or npm install
    ```
 
 3. **Run the development server**
 
    ```bash
-   npm run dev
+   pnpm dev
+   # or npm run dev
    ```
 
-4. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000) to see the application running.
+4. **Open the app**
+
+   Visit [http://localhost:3000](http://localhost:3000)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See [LICENSE](LICENSE).
 
 ---
 
-Built with by [Abdulakeem Habeeb](https://github.com/BOL-DEV)
+Built by [Afolabi Quadri](https://github.com/afolabi-ola)
